@@ -46,7 +46,7 @@ io.on('connect', (soc) => {
     });
 
     soc.on('fcm-error', (data) => {
-      logging.unshift(`${(new Date()).toLocaleString("ko-KR", {timeZone: "Asia/Seoul"})}: <b>[${soc['uid']}]</b> FCM ERROR <span style="color:red">${data}</span>`);
+      logging.unshift(`${(new Date()).toLocaleString("ko-KR", {timeZone: "Asia/Seoul"})}: <b>[${soc['uid']}]</b> FCM ERROR <p style="color:red">${data}</p>`);
 
       if (logging.length > 1000) {
         logging.pop();
