@@ -1,0 +1,120 @@
+html
+    head
+        title CC
+    style.
+        @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+        body {
+            font-family: "Noto Sans", "Noto Sans CJK", sans-serif;
+            background-color: #2e3440;
+            color: #d8dee9;
+        }
+
+        .container {
+            padding: 26px;
+        }
+
+        .total-container {
+            display: flex;
+            list-style: none;
+        }
+
+        .total-container li {
+            flex: 1 1 0;
+            background-color: #3b4252;
+            border-radius: 6px;
+        }
+
+        .total-container li.mac {
+            background-color: #434c5e;
+        }
+        
+        .total-container li.real {
+            background-color: #5e81ac;
+        }
+
+        .total-container li + li {
+            margin-left: 16px;
+        }
+
+        .total-container li > * {
+            text-align: center;
+        }
+
+        .total-container .count {
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .day-container {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(134px, 1fr));
+            grid-column-gap: 8px;
+            grid-row-gap: 8px;
+        }
+
+        .day-container li {
+            background-color: #4c566a;
+            border-radius: 6px;
+        }
+
+        .day-container li > * {
+            text-align: center;
+        }
+        
+        .day-container li .title {
+            font-size: 13px;
+        }
+
+        .day-container li .count {
+            font-size: 24px;
+        }
+
+        .log-container li {
+            font-size: 12px;
+            border-bottom: 1px solid #3b4252;
+        }
+
+        .error {
+            color: #bf616a;
+        }
+
+        .ok {
+            color: #a3be8c;
+        }
+
+    body
+        .container
+            p cli-cnt (Last Updated at #{updated})
+            ul.total-container
+                li
+                    p.title Total Connected
+                    p.count #{total}
+                li
+                    p.title Windows Current
+                    p.count #{current_win}
+                li.mac
+                    p.title macOS Current
+                    p.count #{current_darwin}
+                li
+                    p.title Windows Installed
+                    p.count #{installed_win}
+                        small (#{old_unique})
+                li.mac
+                    p.title macOS Installed
+                    p.count #{installed_darwin}
+                li.real
+                    p.title Real Connection
+                    p.count #{real_total}
+            ul.day-container
+                each day in dayList
+                    li
+                        p.title #{day.day}
+                        p.count #{day.count}
+            ul.log-container
+                each log in logList
+                    li 
+                        != log
+
+    
