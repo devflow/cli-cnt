@@ -19,6 +19,9 @@ var resultChunk = {
   'updated': new Date()
 };
 
+redis.set('connected_win32_count', 0)
+redis.set('connected_darwin_count', 0)
+
 const updater = {
   common: () => {
     resultChunk.logList = logging;
