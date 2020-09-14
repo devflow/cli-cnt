@@ -133,7 +133,7 @@ http.listen(8080, () => {
   console.log('listening on *:8080');
 });
 
-setTimeout(() => {
+setInterval(() => {
   updater.common();
   updater.updateDayListData();
 }, 10000)
