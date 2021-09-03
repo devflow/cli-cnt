@@ -67,8 +67,8 @@ const updater = {
       var tick = true;
 
       results.forEach((res, idx) => {
-        if (tick) dayList[idx].count = parseInt(res[1]);
-        else dayList[idx - 1].unique = parseInt(res[1]);
+        if (tick) dayList[idx / 2].count = parseInt(res[1]);
+        else dayList[(idx - 1) / 2].unique = parseInt(res[1]);
 
         tick = !tick;
       });
